@@ -1,0 +1,89 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.items{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    flex-grow: 1;
+}
+.btn {
+    background-color: #00d0ff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn.delete {
+    background: #ff4d4d;
+    color: white;
+    font-weight: bold;
+}
+
+.btn.edit {
+    background: #00d0ff;
+    font-weight: bold;
+    color: white;
+}
+
+.btn.submit {
+    background: #4CAF50;
+    color: white;
+}
+
+.lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lesson-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.lesson-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-form, .update-form, .search-form {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f4f4f4;
+}

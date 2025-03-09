@@ -1,0 +1,57 @@
+.btns-up {
+  text-decoration: none;
+  padding: 8px 12px;
+  border: none;
+  width: fit-content;
+  background: white;
+  color: #00d0ff;
+  font-size: 14px;
+  gap: 10px;
+  border: 1px solid #00d0ff;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.mat-toolbar {
+  position: relative;
+}
+
+.users {
+  position: absolute;
+  gap: 10px;
+  left: 10px;
+}
+
+.home-container {
+  direction: rtl;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-section,
+.featured-courses,
+.about-us,
+.testimonials {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+mat-card {
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+mat-card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+mat-card-content p {
+  font-size: 1.1em;
+  color: #555;
+}

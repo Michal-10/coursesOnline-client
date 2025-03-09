@@ -1,0 +1,54 @@
+
+<mat-card class="container">
+  <mat-card-title>📋 List of Users</mat-card-title>
+  <mat-divider></mat-divider>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="goBack()">Go Home</button>
+    <button mat-raised-button color="primary" (click)="getUsers()">🔄 Refresh List</button>
+    <button mat-raised-button color="accent" (click)="whichClick('getById')">🔍 Find User</button>
+  </div>
+
+  <mat-list class="user-list">
+    @for (item of listUsers$ | async; track item.id) {
+    <mat-list-item class="user-item">
+      <div class="user-details">
+        <span class="user-text">{{ item.name }} | {{ item.email }} | <strong>{{ item.role }}</strong></span>
+        <div class="actions">
+          <button mat-icon-button color="warn" (click)="deleteUser(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+    }
+  </mat-list>
+</mat-card>
+
+@if (statusClick == 'getById') {
+<mat-card class="form-card">
+  <mat-card-title>🔎 Find User by ID</mat-card-title>
+  <mat-divider></mat-divider>
+  <form (submit)="getUserById(+idCourse.value)" class="search-form">
+    <br><br>
+    <mat-form-field appearance="outline">
+
+      <mat-label>Enter User ID</mat-label>
+      <input matInput #idCourse type="number" required>
+    </mat-form-field>
+    <button mat-raised-button color="warn">Submit</button>
+  </form>
+</mat-card>
+}
+
+@if (user) {
+<mat-card class="user-info">
+  <mat-card-title>👤 User Details</mat-card-title>
+  <mat-card-content>
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Role:</strong> {{ user.role }}</p>
+  </mat-card-content>
+</mat-card>
+}

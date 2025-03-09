@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="actions">
+        <button (click)="backCourses()" class="btn">Back Courses</button>
+        <button (click)="getLessons()" class="btn">Get Lessons</button>
+        @if(authService.roleUser() === 'teacher') {
+        <button (click)="whichClick('add')" class="btn">Add Lesson</button>
+        }
+    </div>
+
+    <div class="lessons-list">
+        @for (lesson of listLessons$ | async; track lesson.id) {
+        <div class="lesson-item">
+            <div class="items"> {{ lesson.title }} - {{lesson.content}}</div>
+
+            @if(authService.roleUser() === 'teacher') {
+            <div class="lesson-actions">
+                <button (click)="deleteLesson(lesson.id)" class="btn delete">Delete</button>
+                <button (click)="lessonIdForUpdate = lesson.id" class="btn edit">Update</button>
+            </div>
+            }
+
+            @if(lessonIdForUpdate === lesson.id) {
+            <div class="update-form">
+                <form [formGroup]="formGroup" (ngSubmit)="updateLesson(lesson.id)">
+                    @for (field of getFormFields; track field) {
+                    <div class="form-group">
+                        <label [for]="field">{{ field }}</label>
+                        <input [formControlName]="field" type="text" class="form-control">
+                    </div>
+                    }
+                    <button class="btn submit">Send</button>
+                </form>
+            </div>
+            }
+        </div>
+        }
+    </div>
+
+    @if(status === 'add') {
+    <div class="add-form">
+        <form [formGroup]="formGroup" (ngSubmit)="addLesson()">
+            @for (field of getFormFields; track field) {
+            <div class="form-group">
+                <label [for]="field">{{ field }}</label>
+                <input [formControlName]="field" type="text" class="form-control">
+            </div>
+            }
+            <button class="btn submit">Send</button>
+        </form>
+    </div>
+    }
+</div>
+
+<router-outlet></router-outlet>

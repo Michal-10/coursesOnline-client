@@ -1,0 +1,130 @@
+
+ .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 40px;
+  background: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+mat-card-title {
+  font-size: 2.2em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+mat-divider {
+  margin: 20px 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.button-group button {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.user-list {
+  margin-top: 30px;
+}
+
+.user-item {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.user-item:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-text {
+  font-size: 1.1em;
+  color: #444;
+  flex-grow: 1;
+}
+
+.actions button {
+  margin-left: 15px;
+  transition: transform 0.2s ease;
+}
+
+.actions button:hover {
+  transform: scale(1.1);
+}
+
+.update-form {
+  margin-top: 20px;
+  padding: 30px;
+  background: #f0f4f8;
+  border-radius: 12px;
+}
+
+.form-grid {
+  position: absolute;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-card {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.user-info {
+  background: #e8f5e9;
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.user-info strong {
+  color: #2e7d32;
+}

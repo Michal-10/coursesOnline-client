@@ -1,0 +1,65 @@
+
+<div class="container">
+    <div class="first">
+        <button (click)="goBack()">Go Home</button>
+        <a class="users" routerLink="/users">Users</a>
+    </div>
+    @if (!flag) {
+    <div class="actions">
+        <button (click)="getCourses()">Get Courses</button>
+        @if (authService.roleUser() === 'teacher') {
+        <button (click)="whichClick('add')">Add Course</button>
+        }
+    </div>
+
+    <div class="courses-list">
+        @for (course of listCourses$ | async; track course) {
+        <div class="course-item">
+            <a class="course-link" (click)="showLesson()" [routerLink]="course.id + '/lessons'">
+                 {{ course.title }} - {{ course.description }}
+            </a>
+
+            <div class="course-actions">
+                @if (isEnrolled(course)) {
+                <button class="leaveOrJoin" (click)="leaveAuth(course)">leave</button>
+                }
+                @else {
+                <button class="leaveOrJoin" (click)="joinAuth(course)">join</button>
+                }
+
+                @if (authService.roleUser() === 'teacher') {
+                <button class="edit" (click)="courseIdStatusForUpdate = course.id">Update</button>
+                <button class="delete" (click)="deleteCourse(course.id)">Delete</button>
+                }
+            </div>
+        </div>
+
+        @if (courseIdStatusForUpdate === course.id) {
+        <form [formGroup]="formGroup" (submit)="updateCourse(course.id)" class="update-form">
+            @for (field of getFormFields; track field) {
+            <label [for]="field">{{ field }}</label>
+            <input [formControlName]="field" type="text">
+            }
+            <button type="submit">Send</button>
+        </form>
+        }
+
+        <hr>
+        }
+    </div>
+
+    @if (statusClick === 'add') {
+    <form [formGroup]="formGroup" (submit)="addCourse()" class="add-form">
+        @for (field of getFormFields; track field) {
+        <label [for]="field">{{ field }}</label>
+        <input [formControlName]="field" type="text">
+        }
+        <button type="submit">Send</button>
+    </form>
+    }
+    }
+    @else {
+    <router-outlet (backToCourses)="backFromLessons()"></router-outlet>
+    }
+
+</div>

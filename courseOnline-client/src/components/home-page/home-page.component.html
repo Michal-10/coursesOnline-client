@@ -1,0 +1,66 @@
+
+<div class="home-container">
+  <mat-toolbar color="primary">
+    <span>ברוכים הבאים לפלטפורמת קורסים אונליין</span>
+    @if(showUsersOrCourses){
+      <a class="btns-up users" (click)="goTo('users')"> users </a>
+    }
+  </mat-toolbar>
+
+  <div class="hero-section">
+    <mat-card class="hero-card">
+      <mat-card-header>
+        <mat-card-title>📚 התחילו ללמוד היום!</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>הפלטפורמה המובילה ללמידה אונליין. בחרו קורס, למדו בקצב שלכם, והתקדמו בקריירה!</p>
+
+        @if(showUsersOrCourses){
+        <a class="btns-up" (click)="goTo('courses')">courses</a>
+        }
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="featured-courses">
+    <mat-card class="highlight-card">
+      <mat-card-header>
+        <mat-card-title>⭐ קורסים מומלצים</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>למדו מהמרצים הטובים ביותר וקבלו גישה לתכנים מעודכנים שייקחו אתכם קדימה.</p>
+        <a class="btns-up" (click)="goTo('courses')">courses</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="about-us">
+    <mat-card class="about-card">
+      <mat-card-header>
+        <mat-card-title>💡 למה לבחור בנו?</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>📌 למידה מכל מקום ובכל זמן</p>
+        <p>📌 מרצים מקצועיים ומנוסים</p>
+        <p>📌 תוכן מעודכן לפי הטרנדים המובילים</p>
+        <p>📌 תמיכה מלאה למשתמשים</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="testimonials">
+    <mat-card class="testimonial-card">
+      <mat-card-header>
+        <mat-card-title>🗣️ מה הסטודנטים שלנו אומרים</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>💬 "למדתי פה קורס בפיתוח אתרים, תוך כמה חודשים כבר בניתי פרויקט משלי!"</p>
+        <p>- דני, בוגר הקורס</p>
+        <p>💬 "הלמידה נוחה והכל ברור, אהבתי במיוחד את התמיכה מהמרצים!"</p>
+        <p>- רונית, סטודנטית לקורס עיצוב גרפי</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
